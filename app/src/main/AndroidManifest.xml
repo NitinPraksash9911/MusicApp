@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.musicapp">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:name=".AppClass"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".MusicService"
+            android:exported="false"
+            android:stopWithTask="true">
+            <intent-filter>
+                <action android:name="com.simplemobiletools.musicplayer.action.INIT" />
+                <action android:name="com.simplemobiletools.musicplayer.action.INIT_PATH" />
+                <action android:name="com.simplemobiletools.musicplayer.action.FINISH" />
+                <action android:name="com.simplemobiletools.musicplayer.action.FINISH_IF_NOT_PLAYING" />
+                <action android:name="com.simplemobiletools.musicplayer.action.PREVIOUS" />
+                <action android:name="com.simplemobiletools.musicplayer.action.PAUSE" />
+                <action android:name="com.simplemobiletools.musicplayer.action.PLAYPAUSE" />
+                <action android:name="com.simplemobiletools.musicplayer.action.NEXT" />
+                <action android:name="com.simplemobiletools.musicplayer.action.EDIT" />
+                <action android:name="com.simplemobiletools.musicplayer.action.PLAY_TRACK" />
+                <action android:name="com.simplemobiletools.musicplayer.action.REFRESH_LIST" />
+                <action android:name="com.simplemobiletools.musicplayer.action.UPDATE_NEXT_TRACK" />
+                <action android:name="com.simplemobiletools.musicplayer.action.SET_PROGRESS" />
+                <action android:name="com.simplemobiletools.musicplayer.action.SKIP_BACKWARD" />
+                <action android:name="com.simplemobiletools.musicplayer.action.SKIP_FORWARD" />
+                <action android:name="com.simplemobiletools.musicplayer.action.REMOVE_CURRENT_SONG" />
+                <action android:name="com.simplemobiletools.musicplayer.action.REMOVE_SONG_IDS" />
+                <action android:name="com.simplemobiletools.musicplayer.action.BROADCAST_STATUS" />
+            </intent-filter>
+        </service>
+        <receiver android:name=".reciever.ControlActionsListener" />
+
+    </application>
+
+
+</manifest>
